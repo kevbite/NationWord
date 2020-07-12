@@ -32,5 +32,16 @@ namespace NationWordTests
             bool result = adder.DoesWordContainaaa("aaa");
             Assert.That(result, Is.True);
         }
+
+        [TestCase("a", 1)]
+        [TestCase("b", 2)]
+        public void When_Word_Is_One_Letter_as_Can_Be_Added_To_It(string word, int expected)
+        {
+            AAdder adder = new AAdder();
+            int result = adder.AddAsTo(word);
+            Assert.That(result, Is.EqualTo(expected));
+        }
+
+
     }
 }

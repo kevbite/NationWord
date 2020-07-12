@@ -18,6 +18,20 @@ namespace NationWord
                 result = 0;
             }
 
+            int aCount = 0;
+            while (!DoesWordContainaaa(word))
+            {
+                word = "a" + word;
+                aCount++;
+
+                if (DoesWordContainaaa(word))
+                {
+                    aCount--;
+                    result = aCount;
+                    break;
+                }
+            }
+
             return result;
         }
 
