@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace NationWord
 {
@@ -31,6 +32,16 @@ namespace NationWord
             }
 
             return false;
+        }
+
+        public int FindLongestAssembledString(string[] fragments)
+        {
+            if (!fragments.Any())
+            {
+                return 0;
+            }
+
+            return -1;
         }
     }
 }

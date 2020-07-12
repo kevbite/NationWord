@@ -15,5 +15,13 @@ namespace NationWordTests
             bool result = assembler.CheckForDuplicateLetters(word);
             Assert.That(result, Is.EqualTo(expected));
         }
+
+        [Test]
+        public void When_Array_Is_Empty_Return_Zero()
+        {
+            StringAssembler assembler = new StringAssembler();
+            int result = assembler.FindLongestAssembledString(new string[0]);
+            Assert.That(result, Is.EqualTo(0));
+        }
     }
 }
