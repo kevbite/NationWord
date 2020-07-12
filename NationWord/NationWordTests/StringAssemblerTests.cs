@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace NationWordTests
 {
-    public class StringAssemblyTests
+    public class StringAssemblerTests
     {
         [TestCase("aa", true)]
         [TestCase("abc", false)]
@@ -48,6 +48,14 @@ namespace NationWordTests
             StringAssembler assembler = new StringAssembler();
             int result = assembler.FindLongestAssembledString(fragments);
             Assert.That(result, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void When_All_Array_Elements_Have_Repeated_Letters_Return_Minus_One()
+        {
+            StringAssembler assembler = new StringAssembler();
+            int result = assembler.FindLongestAssembledString(new string[3]{"banana", "potato", "racecar"});
+            Assert.That(result, Is.EqualTo(-1));
         }
     }
 }
