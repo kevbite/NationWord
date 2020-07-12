@@ -1,3 +1,4 @@
+
 # NationWord
 # Time Limit: 1 hour
 # Both tasks should be completed
@@ -10,7 +11,7 @@ The string 'dog' can become 'aadaaoaagaa', so your function should return 8.
 The string 'baaaa' already contains 'aaa', in this case your function should return -1.  
 The string 'aa' cannot have any 'a's added to it before it becomes 'aaa', in this case your function should return 0.
 
-##Task 2  
+## Task 2  
 For a given array of strings, write a function that calculates the length of the longest string that can be assembled by combining elements of the array and that does not contain any repeated letters.
 
 Sample inputs  
