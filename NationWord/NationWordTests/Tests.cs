@@ -23,5 +23,13 @@ namespace NationWordTests
             int result = assembler.FindLongestAssembledString(new string[0]);
             Assert.That(result, Is.EqualTo(0));
         }
+
+        [Test]
+        public void When_Array_Has_One_Element_Return_Length_Of_Element()
+        {
+            StringAssembler assembler = new StringAssembler();
+            int result = assembler.FindLongestAssembledString(new string[1]{"co"});
+            Assert.That(result, Is.EqualTo(2));
+        }
     }
 }

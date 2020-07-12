@@ -41,6 +41,11 @@ namespace NationWord
                 return 0;
             }
 
+            if (fragments.Length == 1)
+            {
+                return fragments[0].Length;
+            }
+
             return -1;
         }
     }
