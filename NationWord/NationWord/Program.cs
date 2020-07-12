@@ -43,7 +43,14 @@ namespace NationWord
 
             if (fragments.Length == 1)
             {
-                return fragments[0].Length;
+                if (CheckForDuplicateLetters(fragments[0]))
+                {
+                    return -1;
+                }
+                else
+                {
+                    return fragments[0].Length;
+                }
             }
 
             return -1;

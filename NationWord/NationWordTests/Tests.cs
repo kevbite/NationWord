@@ -25,11 +25,19 @@ namespace NationWordTests
         }
 
         [Test]
-        public void When_Array_Has_One_Element_Return_Length_Of_Element()
+        public void When_Array_Has_One_Element_With_No_Duplicate_Characters_Return_Length_Of_Element()
         {
             StringAssembler assembler = new StringAssembler();
             int result = assembler.FindLongestAssembledString(new string[1]{"co"});
             Assert.That(result, Is.EqualTo(2));
+        }
+
+        [Test]
+        public void When_Array_Has_One_Element_With_Duplicate_Characters_Return_Minus_One()
+        {
+            StringAssembler assembler = new StringAssembler();
+            int result = assembler.FindLongestAssembledString(new string[1]{"coc"});
+            Assert.That(result, Is.EqualTo(-1));
         }
     }
 }
