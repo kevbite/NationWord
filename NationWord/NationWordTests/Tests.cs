@@ -39,5 +39,15 @@ namespace NationWordTests
             int result = assembler.FindLongestAssembledString(new string[1]{"coc"});
             Assert.That(result, Is.EqualTo(-1));
         }
+
+        [TestCase(new string[2]{"co", "dil"}, 5)]
+        [TestCase(new string[3]{"co", "dil", "ity"}, 5)]
+        [TestCase(new string[3]{"ezy", "jnx", "btp"}, 9)]
+        public void When_Array_Has_Multiple_Elements_Combine_Them_To_Get_The_Length(string[] fragments, int expected)
+        {
+            StringAssembler assembler = new StringAssembler();
+            int result = assembler.FindLongestAssembledString(fragments);
+            Assert.That(result, Is.EqualTo(expected));
+        }
     }
 }

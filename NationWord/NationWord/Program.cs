@@ -34,23 +34,57 @@ namespace NationWord
             return false;
         }
 
-        public int FindLongestAssembledString(string[] fragments)
+        public int FindLongestAssembledString(string[] S)
         {
-            if (!fragments.Any())
+            if (!S.Any())
             {
                 return 0;
             }
 
-            if (fragments.Length == 1)
+            if (S.Length == 1)
             {
-                if (CheckForDuplicateLetters(fragments[0]))
+                if (CheckForDuplicateLetters(S[0]))
                 {
                     return -1;
                 }
                 else
                 {
-                    return fragments[0].Length;
+                    return S[0].Length;
                 }
+            }
+            else
+            {
+                List<string> fragments = S.ToList();
+
+                int longestConcatenation = 0;
+
+                foreach (string fragment in fragments)
+                {
+                    List<string> otherFragments = fragments.Except(new List<string>(){fragment}).ToList();
+
+                    string concatenation = fragment;
+                    string originalConcatenation;
+
+                    foreach (string otherFragment in otherFragments)
+                    {
+                        originalConcatenation = concatenation;
+                        concatenation += otherFragment;
+
+                        if (!CheckForDuplicateLetters(concatenation))
+                        {
+                            if (concatenation.Length > longestConcatenation)
+                            {
+                                longestConcatenation = concatenation.Length;
+                            }
+                        }
+                        else
+                        {
+                            concatenation = originalConcatenation;
+                        }
+                    }
+                }
+
+                return longestConcatenation;
             }
 
             return -1;
