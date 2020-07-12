@@ -1,15 +1,29 @@
-﻿namespace NationWord
+﻿using System;
+
+namespace NationWord
 {
     public class AAdder
     {
         public int AddAsTo(string word)
         {
-            if (word.Contains("aaa"))
+            int result = int.MaxValue;
+
+            if (DoesWordContainaaa(word))
             {
-                return -1;
+                result = -1;
             }
 
-            return 0;
+            if (word == "aa")
+            {
+                result = 0;
+            }
+
+            return result;
+        }
+
+        public bool DoesWordContainaaa(string word)
+        {
+            return word.Contains("aaa");
         }
     }
 }

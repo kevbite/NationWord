@@ -17,6 +17,20 @@ namespace NationWordTests
             Assert.That(result, Is.EqualTo(-1));
         }
 
+        [Test]
+        public void When_Word_Is_aa_Return_Zero()
+        {
+            AAdder adder = new AAdder();
+            int result = adder.AddAsTo("aa");
+            Assert.That(result, Is.EqualTo(0));
+        }
 
+        [Test]
+        public void When_Word_Contains_aaa_Return_True()
+        {
+            AAdder adder = new AAdder();
+            bool result = adder.DoesWordContainaaa("aaa");
+            Assert.That(result, Is.True);
+        }
     }
 }
