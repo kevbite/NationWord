@@ -34,12 +34,20 @@ namespace NationWordTests
         }
 
         [TestCase("a", 1)]
-        [TestCase("b", 2)]
+        [TestCase("b", 4)]
         public void When_Word_Is_One_Letter_as_Can_Be_Added_To_It(string word, int expected)
         {
             AAdder adder = new AAdder();
             int result = adder.AddAsTo(word);
             Assert.That(result, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void When_Word_Is_dog_Eight_As_Can_Be_Added_To_It()
+        {
+            AAdder adder = new AAdder();
+            int result = adder.AddAsTo("dog");
+            Assert.That(result, Is.EqualTo(8));
         }
 
 
