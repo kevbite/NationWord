@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace NationWord
 {
@@ -6,31 +7,28 @@ namespace NationWord
     {
         public int AddAsTo(string word)
         {
-            int result = int.MaxValue;
+            int result;
 
             if (DoesWordContainaaa(word))
             {
                 result = -1;
             }
-
-            if (word == "aa")
+            else
             {
-                result = 0;
-            }
-
-            int aCount = 0;
-            while (!DoesWordContainaaa(word))
-            {
-                word = "a" + word;
-                aCount++;
-
-                if (DoesWordContainaaa(word))
+                if (word == "aa")
                 {
-                    aCount--;
-                    result = aCount;
-                    break;
+                    result = 0;
+                }
+                else
+                {
+                    int numberOfNonAChars = word.Count(c => (c != 'a'));
+                    int numberOfAChars = word.Count(c => (c == 'a'));
+
+                    return ((numberOfNonAChars * 2) + 2) - numberOfAChars;
+
                 }
             }
+
 
             return result;
         }
